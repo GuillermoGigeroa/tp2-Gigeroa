@@ -32,24 +32,16 @@ namespace Negocio
                     articulo.Marca = marca;
                     articulo.Categoria = categoria;
 
-                    //if (!Convert.IsDBNull(lector["Codigo"]))
-                        articulo.CodigoArticulo = lector["Codigo"].ToString();
-                    //if (!Convert.IsDBNull(lector["Nombre"]))
-                        articulo.Nombre = lector["Nombre"].ToString();
-                    //if (!Convert.IsDBNull(lector["Descripcion"]))
-                        articulo.Descripcion = lector["Descripcion"].ToString();
-                    //if (!Convert.IsDBNull(lector["IdMarca"]))
-                        articulo.Marca.ID_Marca = (int)lector["IdMarca"];
-                    //if (!Convert.IsDBNull(lector["Marca"]))
-                        articulo.Marca.Nombre = lector["Marca"].ToString();
-                    //if (!Convert.IsDBNull(lector["IDCategoria"]))
-                        articulo.Categoria.ID_Categoria = (int)lector["IDCategoria"];
-                    //if (!Convert.IsDBNull(lector["Categoria"]))
-                        articulo.Categoria.Nombre = lector["Categoria"].ToString();
-                    //if (!Convert.IsDBNull(lector["ImagenUrl"]))
-                        articulo.URL_Imagen = lector["ImagenUrl"].ToString();
-                    //if (!Convert.IsDBNull(lector["Precio"]))
-                        articulo.Precio = (decimal)lector["Precio"];
+                    articulo.CodigoArticulo = lector["Codigo"].ToString();
+                    articulo.Nombre = lector["Nombre"].ToString();
+                    articulo.Descripcion = lector["Descripcion"].ToString();
+                    articulo.Marca.ID_Marca = (int)lector["IdMarca"];
+                    articulo.Marca.Nombre = lector["Marca"].ToString();
+                    articulo.Categoria.ID_Categoria = (int)lector["IDCategoria"];
+                    articulo.Categoria.Nombre = lector["Categoria"].ToString();
+                    articulo.URL_Imagen = lector["ImagenUrl"].ToString();
+                    articulo.Precio = (decimal)lector["Precio"];
+                    
                     listado.Add(articulo);
                 }
                 return listado;
