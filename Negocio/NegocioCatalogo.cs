@@ -17,7 +17,7 @@ namespace Negocio
             {
                 Datos datos = new Datos();
                 datos.ConfigurarConexion();
-                datos.IngresarComando("SELECT A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as [Marca], A.IdCategoria, C.Descripcion as [Categoria], A.ImagenUrl, A.Precio FROM ARTICULOS as A left join CATEGORIAS as C on A.IdCategoria = C.Id left join MARCAS as M on A.IdMarca = M.Id");
+                datos.IngresarComando("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as [Marca], A.IdCategoria, C.Descripcion as [Categoria], A.ImagenUrl, A.Precio FROM ARTICULOS as A left join CATEGORIAS as C on A.IdCategoria = C.Id left join MARCAS as M on A.IdMarca = M.Id");
                 datos.ConectarDB();
                 datos.PrepararLectura();
                 SqlDataReader datosLeidos;
@@ -26,6 +26,7 @@ namespace Negocio
                     datosLeidos = datos.Lectura();
                     Articulo articulo = new Articulo
                     {
+                        ID_Articulo = (int)datosLeidos["Id"],
                         CodigoArticulo = datosLeidos["Codigo"].ToString(),
                         Nombre = datosLeidos["Nombre"].ToString(),
                         Descripcion = datosLeidos["Descripcion"].ToString(),
@@ -49,7 +50,29 @@ namespace Negocio
             {
                 Datos datos = new Datos();
                 datos.DesconectarDB();
+                //datos.IngresarComando("Delete...");
+                datos.ConectarDB();
+
             }
         }
+        /* SE DEBE IMPLEMENTAR BIEN ESTE MÉTODO
+        public void AgregarArticulo(Articulo articulo)
+        {
+            try
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+            }
+        }
+        */
     }
 }

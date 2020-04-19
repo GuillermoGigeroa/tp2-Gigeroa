@@ -24,7 +24,8 @@ namespace CatalogoDeArticulos
             {
                 NegocioCatalogo negocio = new NegocioCatalogo();
                 dgvListaDeArticulos.DataSource = negocio.ListarArticulos();
-                dgvListaDeArticulos.Columns[3].Visible = false;//Oculto la columna que tiene la URL de la imagen
+                dgvListaDeArticulos.Columns[0].Visible = false;//Oculto la columna que tiene el ID del artículo
+                dgvListaDeArticulos.Columns[4].Visible = false;//Oculto la columna que tiene la URL de la imagen
             }
             catch (Exception ex)
             {
