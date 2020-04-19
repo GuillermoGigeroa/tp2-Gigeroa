@@ -15,5 +15,12 @@ namespace Dominio
         public decimal Precio { get; set; }
         public Marca Marca { get; set; }
         public Categoria Categoria { get; set; }
+        public Articulo()
+        {
+            Marca marca = new Marca();
+            Categoria categoria = new Categoria();
+            this.Marca = marca;
+            this.Categoria = categoria;
+        }
     }
 }
