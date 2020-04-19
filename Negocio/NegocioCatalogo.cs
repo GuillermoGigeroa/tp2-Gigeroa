@@ -32,23 +32,23 @@ namespace Negocio
                     articulo.Marca = marca;
                     articulo.Categoria = categoria;
 
-                    if (!Convert.IsDBNull(lector["Codigo"]))
+                    //if (!Convert.IsDBNull(lector["Codigo"]))
                         articulo.CodigoArticulo = lector["Codigo"].ToString();
-                    if (!Convert.IsDBNull(lector["Nombre"]))
+                    //if (!Convert.IsDBNull(lector["Nombre"]))
                         articulo.Nombre = lector["Nombre"].ToString();
-                    if (!Convert.IsDBNull(lector["Descripcion"]))
+                    //if (!Convert.IsDBNull(lector["Descripcion"]))
                         articulo.Descripcion = lector["Descripcion"].ToString();
-                    if (!Convert.IsDBNull(lector["IdMarca"]))
+                    //if (!Convert.IsDBNull(lector["IdMarca"]))
                         articulo.Marca.ID_Marca = (int)lector["IdMarca"];
-                    if (!Convert.IsDBNull(lector["Marca"]))
+                    //if (!Convert.IsDBNull(lector["Marca"]))
                         articulo.Marca.Nombre = lector["Marca"].ToString();
-                    if (!Convert.IsDBNull(lector["IDCategoria"]))
+                    //if (!Convert.IsDBNull(lector["IDCategoria"]))
                         articulo.Categoria.ID_Categoria = (int)lector["IDCategoria"];
-                    if (!Convert.IsDBNull(lector["Categoria"]))
+                    //if (!Convert.IsDBNull(lector["Categoria"]))
                         articulo.Categoria.Nombre = lector["Categoria"].ToString();
-                    if (!Convert.IsDBNull(lector["ImagenUrl"]))
+                    //if (!Convert.IsDBNull(lector["ImagenUrl"]))
                         articulo.URL_Imagen = lector["ImagenUrl"].ToString();
-                    if (!Convert.IsDBNull(lector["Precio"]))
+                    //if (!Convert.IsDBNull(lector["Precio"]))
                         articulo.Precio = (decimal)lector["Precio"];
                     listado.Add(articulo);
                 }
