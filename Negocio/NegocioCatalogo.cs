@@ -49,20 +49,25 @@ namespace Negocio
             finally
             {
                 Datos datos = new Datos();
+                datos.ConfigurarConexion();
                 datos.DesconectarDB();
-                //datos.IngresarComando("Delete...");
-                datos.ConectarDB();
-
             }
         }
-        /* SE DEBE IMPLEMENTAR BIEN ESTE MÉTODO
-        public void AgregarArticulo(Articulo articulo)
+        public void AgregarArticulo(Articulo articuloRecibido)
         {
             try
             {
                 Datos datos = new Datos();
                 datos.ConfigurarConexion();
-
+                datos.AgregarParametro("@CodigoArticulo", articuloRecibido.CodigoArticulo);
+                datos.AgregarParametro("@Nombre", articuloRecibido.Nombre);
+                datos.AgregarParametro("@Descripcion", articuloRecibido.Descripcion);
+                datos.AgregarParametro("@URL", articuloRecibido.URL_Imagen);
+                datos.AgregarParametro("@Precio", articuloRecibido.Precio);
+                datos.AgregarParametro("@IDMarca", articuloRecibido.Marca.ID_Marca);
+                datos.AgregarParametro("@IDCategoria", articuloRecibido.Categoria.ID_Categoria);
+                datos.IngresarComando("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@CodigoArticulo,@Nombre,@Descripcion,@IDMarca,@IDCategoria,@URL,@Precio)");
+                datos.ConectarDB();
             }
             catch (Exception ex)
             {
@@ -70,9 +75,10 @@ namespace Negocio
             }
             finally
             {
-
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.DesconectarDB();
             }
         }
-        */
     }
 }

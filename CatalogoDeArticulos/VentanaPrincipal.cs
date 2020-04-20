@@ -43,5 +43,25 @@ namespace CatalogoDeArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregar agregar = new frmAgregar();
+            agregar.ShowDialog();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

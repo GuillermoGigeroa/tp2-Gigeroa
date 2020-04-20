@@ -48,5 +48,9 @@ namespace Negocio
         {
             return lector;
         }
+        public void AgregarParametro(string nombre, object objeto)
+        {
+            comando.Parameters.AddWithValue(nombre, objeto);
+        }
     }
 }
