@@ -31,6 +31,10 @@ namespace Negocio
         {
             conexion.Open();
         }
+        public void Ejecutar()
+        {
+            comando.ExecuteNonQuery();
+        }
         public void DesconectarDB()
         {
             ConfigurarConexion();

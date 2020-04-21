@@ -18,7 +18,7 @@ namespace CatalogoDeArticulos
         {
             InitializeComponent();
         }
-        private void CargarDGV()
+        public void CargarDGV()
         {
             try
             {

@@ -35,10 +35,10 @@
             this.lblAccion = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.cboMarcas = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
@@ -46,10 +46,10 @@
             this.lblURL = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPrecioEntero = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtPrecioCentavos = new System.Windows.Forms.TextBox();
             this.lblComa = new System.Windows.Forms.Label();
             this.lblPesos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
@@ -98,10 +98,10 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(102, 152);
-            this.txtCodigo.MaxLength = 40;
+            this.txtCodigo.MaxLength = 70;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(250, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 1;
             // 
             // lblCodigo
             // 
@@ -114,13 +114,13 @@
             this.lblCodigo.Text = "Código:";
             this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 178);
-            this.textBox1.MaxLength = 40;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 20);
-            this.textBox1.TabIndex = 10;
+            this.txtNombre.Location = new System.Drawing.Point(102, 178);
+            this.txtNombre.MaxLength = 70;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(250, 20);
+            this.txtNombre.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -144,13 +144,13 @@
             this.lblDescripcion.Text = "Descripción:";
             this.lblDescripcion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // txtDescripcion
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 204);
-            this.textBox2.MaxLength = 40;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(250, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtDescripcion.Location = new System.Drawing.Point(102, 204);
+            this.txtDescripcion.MaxLength = 70;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(250, 20);
+            this.txtDescripcion.TabIndex = 3;
             // 
             // lblMarca
             // 
@@ -165,11 +165,13 @@
             // 
             // cboMarcas
             // 
+            this.cboMarcas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarcas.FormattingEnabled = true;
             this.cboMarcas.Location = new System.Drawing.Point(102, 230);
             this.cboMarcas.Name = "cboMarcas";
             this.cboMarcas.Size = new System.Drawing.Size(250, 21);
-            this.cboMarcas.TabIndex = 11;
+            this.cboMarcas.TabIndex = 4;
             // 
             // lblCategoria
             // 
@@ -184,11 +186,13 @@
             // 
             // cboCategorias
             // 
+            this.cboCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategorias.FormattingEnabled = true;
             this.cboCategorias.Location = new System.Drawing.Point(102, 257);
             this.cboCategorias.Name = "cboCategorias";
             this.cboCategorias.Size = new System.Drawing.Size(250, 21);
-            this.cboCategorias.TabIndex = 11;
+            this.cboCategorias.TabIndex = 5;
             // 
             // lblURL
             // 
@@ -204,10 +208,10 @@
             // txtURL
             // 
             this.txtURL.Location = new System.Drawing.Point(102, 284);
-            this.txtURL.MaxLength = 40;
+            this.txtURL.MaxLength = 500;
             this.txtURL.Name = "txtURL";
             this.txtURL.Size = new System.Drawing.Size(250, 20);
-            this.txtURL.TabIndex = 10;
+            this.txtURL.TabIndex = 6;
             // 
             // lblPrecio
             // 
@@ -220,13 +224,16 @@
             this.lblPrecio.Text = "Precio:";
             this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox3
+            // txtPrecioEntero
             // 
-            this.textBox3.Location = new System.Drawing.Point(124, 310);
-            this.textBox3.MaxLength = 30;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtPrecioEntero.Location = new System.Drawing.Point(124, 310);
+            this.txtPrecioEntero.MaxLength = 20;
+            this.txtPrecioEntero.Name = "txtPrecioEntero";
+            this.txtPrecioEntero.Size = new System.Drawing.Size(176, 20);
+            this.txtPrecioEntero.TabIndex = 7;
+            this.txtPrecioEntero.Text = "0";
+            this.txtPrecioEntero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecioEntero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioEntero_KeyPress);
             // 
             // btnAgregar
             // 
@@ -235,9 +242,10 @@
             this.btnAgregar.Location = new System.Drawing.Point(102, 337);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(117, 39);
-            this.btnAgregar.TabIndex = 12;
+            this.btnAgregar.TabIndex = 9;
             this.btnAgregar.Text = "&Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -246,17 +254,20 @@
             this.btnCancelar.Location = new System.Drawing.Point(235, 337);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 39);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // textBox4
+            // txtPrecioCentavos
             // 
-            this.textBox4.Location = new System.Drawing.Point(306, 310);
-            this.textBox4.MaxLength = 3;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(46, 20);
-            this.textBox4.TabIndex = 10;
+            this.txtPrecioCentavos.Location = new System.Drawing.Point(306, 310);
+            this.txtPrecioCentavos.MaxLength = 3;
+            this.txtPrecioCentavos.Name = "txtPrecioCentavos";
+            this.txtPrecioCentavos.Size = new System.Drawing.Size(46, 20);
+            this.txtPrecioCentavos.TabIndex = 8;
+            this.txtPrecioCentavos.Text = "00";
+            this.txtPrecioCentavos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCentavos_KeyPress);
             // 
             // lblComa
             // 
@@ -289,13 +300,13 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cboCategorias);
             this.Controls.Add(this.cboMarcas);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtPrecioCentavos);
+            this.Controls.Add(this.txtPrecioEntero);
             this.Controls.Add(this.txtURL);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.lblPrecio);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblURL);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblDescripcion);
@@ -311,6 +322,7 @@
             this.Name = "frmAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar artículo";
+            this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -325,10 +337,10 @@
         private System.Windows.Forms.Label lblAccion;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.ComboBox cboMarcas;
         private System.Windows.Forms.Label lblCategoria;
@@ -336,10 +348,10 @@
         private System.Windows.Forms.Label lblURL;
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPrecioEntero;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtPrecioCentavos;
         private System.Windows.Forms.Label lblComa;
         private System.Windows.Forms.Label lblPesos;
     }

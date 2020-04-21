@@ -21,10 +21,11 @@ namespace Negocio
                 datos.ConectarDB();
                 datos.PrepararLectura();
                 SqlDataReader datosLeidos;
+                Articulo articulo;
                 while (datos.Leer())
                 {
                     datosLeidos = datos.Lectura();
-                    Articulo articulo = new Articulo
+                    articulo = new Articulo
                     {
                         ID_Articulo = (int)datosLeidos["Id"],
                         CodigoArticulo = datosLeidos["Codigo"].ToString(),
@@ -68,6 +69,74 @@ namespace Negocio
                 datos.AgregarParametro("@IDCategoria", articuloRecibido.Categoria.ID_Categoria);
                 datos.IngresarComando("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@CodigoArticulo,@Nombre,@Descripcion,@IDMarca,@IDCategoria,@URL,@Precio)");
                 datos.ConectarDB();
+                datos.Ejecutar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.DesconectarDB();
+            }
+        }
+        public List<Marca> ListarMarcas()
+        {
+            List<Marca> listado = new List<Marca>();
+            try
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.IngresarComando("SELECT Id, Descripcion FROM MARCAS");
+                datos.ConectarDB();
+                datos.PrepararLectura();
+                SqlDataReader datosLeidos;
+                Marca marca;
+                while (datos.Leer())
+                {
+                    datosLeidos = datos.Lectura();
+                    marca = new Marca();
+                    marca.ID_Marca = (int)datosLeidos["Id"];
+                    marca.Nombre = datosLeidos["Descripcion"].ToString();
+                    listado.Add(marca);
+                }
+                return listado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.DesconectarDB();
+            }
+        }
+
+        public List<Categoria> ListarCategorias()
+        {
+            List<Categoria> listado = new List<Categoria>();
+            try
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.IngresarComando("SELECT Id, Descripcion FROM CATEGORIAS");
+                datos.ConectarDB();
+                datos.PrepararLectura();
+                SqlDataReader datosLeidos;
+                Categoria categoria;
+                while (datos.Leer())
+                {
+                    datosLeidos = datos.Lectura();
+                    categoria = new Categoria();
+                    categoria.ID_Categoria = (int)datosLeidos["Id"];
+                    categoria.Nombre = datosLeidos["Descripcion"].ToString();
+                    listado.Add(categoria);
+                }
+                return listado;
             }
             catch (Exception ex)
             {
