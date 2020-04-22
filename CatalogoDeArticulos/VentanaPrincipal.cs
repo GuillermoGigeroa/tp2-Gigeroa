@@ -47,21 +47,26 @@ namespace CatalogoDeArticulos
         {
 
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            Articulo articulo = new Articulo();
+            articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
+            //TODO Falta terminar este método
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAgregar agregar = new frmAgregar();
             agregar.ShowDialog();
+            CargarDGV();
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            frmAgregar modificar = new frmAgregar();
+            Articulo articulo = new Articulo();
+            articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
+            modificar.ConvertirEnModificarArticulo(articulo);
+            modificar.ShowDialog();
+            CargarDGV();
         }
     }
 }

@@ -262,7 +262,7 @@
             // txtPrecioCentavos
             // 
             this.txtPrecioCentavos.Location = new System.Drawing.Point(306, 310);
-            this.txtPrecioCentavos.MaxLength = 3;
+            this.txtPrecioCentavos.MaxLength = 5;
             this.txtPrecioCentavos.Name = "txtPrecioCentavos";
             this.txtPrecioCentavos.Size = new System.Drawing.Size(46, 20);
             this.txtPrecioCentavos.TabIndex = 8;
@@ -294,7 +294,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(361, 388);
+            this.ClientSize = new System.Drawing.Size(370, 388);
             this.Controls.Add(this.lblPesos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);

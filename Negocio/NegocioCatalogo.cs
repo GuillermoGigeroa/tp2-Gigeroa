@@ -38,7 +38,6 @@ namespace Negocio
                     articulo.Marca.Nombre = datosLeidos["Marca"].ToString();
                     articulo.Categoria.ID_Categoria = (int)datosLeidos["IDCategoria"];
                     articulo.Categoria.Nombre = datosLeidos["Categoria"].ToString();
-                    
                     listado.Add(articulo);
                 }
                 return listado;
@@ -68,6 +67,64 @@ namespace Negocio
                 datos.AgregarParametro("@IDMarca", articuloRecibido.Marca.ID_Marca);
                 datos.AgregarParametro("@IDCategoria", articuloRecibido.Categoria.ID_Categoria);
                 datos.IngresarComando("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio) values (@CodigoArticulo,@Nombre,@Descripcion,@IDMarca,@IDCategoria,@URL,@Precio)");
+                datos.ConectarDB();
+                datos.Ejecutar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.DesconectarDB();
+            }
+        }
+        public void ModificarArticulo(Articulo articuloOriginal, Articulo articuloModificado)
+        {
+            try
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.AgregarParametro("@CodigoArticulo", articuloModificado.CodigoArticulo);
+                datos.AgregarParametro("@Nombre", articuloModificado.Nombre);
+                datos.AgregarParametro("@Descripcion", articuloModificado.Descripcion);
+                datos.AgregarParametro("@URL", articuloModificado.URL_Imagen);
+                datos.AgregarParametro("@Precio", articuloModificado.Precio);
+                datos.AgregarParametro("@IDMarca", articuloModificado.Marca.ID_Marca);
+                datos.AgregarParametro("@IDCategoria", articuloModificado.Categoria.ID_Categoria);
+                datos.AgregarParametro("@CodigoArticuloOriginal", articuloModificado.CodigoArticulo);
+                datos.IngresarComando("UPDATE ARTICULOS SET Codigo = @CodigoArticulo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IDMarca, IdCategoria = @IDCategoria, ImagenUrl = @URL, Precio = @Precio WHERE Codigo = @CodigoArticuloOriginal");
+                datos.ConectarDB();
+                datos.Ejecutar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.DesconectarDB();
+            }
+        }
+        public void EliminarArticulo(Articulo articulo)
+        {
+            try
+            {
+                Datos datos = new Datos();
+                datos.ConfigurarConexion();
+                datos.AgregarParametro("@CodigoArticulo", articulo.CodigoArticulo);
+                datos.AgregarParametro("@Nombre", articulo.Nombre);
+                datos.AgregarParametro("@Descripcion", articulo.Descripcion);
+                datos.AgregarParametro("@URL", articulo.URL_Imagen);
+                datos.AgregarParametro("@Precio", articulo.Precio);
+                datos.AgregarParametro("@IDMarca", articulo.Marca.ID_Marca);
+                datos.AgregarParametro("@IDCategoria", articulo.Categoria.ID_Categoria);
+                datos.AgregarParametro("@CodigoArticuloOriginal", articulo.CodigoArticulo);
+                datos.IngresarComando("DELETE FROM ARTICULOS WHERE Codigo = @CodigoArticulo AND Nombre = @Nombre AND Descripcion = @Descripcion AND IdMarca = @IDMarca AND IdCategoria = @IDCategoria AND ImagenUrl = @URL AND Precio = @Precio");
                 datos.ConectarDB();
                 datos.Ejecutar();
             }
@@ -115,7 +172,6 @@ namespace Negocio
                 datos.DesconectarDB();
             }
         }
-
         public List<Categoria> ListarCategorias()
         {
             List<Categoria> listado = new List<Categoria>();

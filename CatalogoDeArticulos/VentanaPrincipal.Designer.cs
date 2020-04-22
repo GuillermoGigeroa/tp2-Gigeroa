@@ -37,7 +37,7 @@
             this.dgvListaDeArticulos = new System.Windows.Forms.DataGridView();
             this.imgIcono = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
             this.SuspendLayout();
@@ -56,17 +56,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 175);
+            this.label2.Location = new System.Drawing.Point(14, 175);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 19);
+            this.label2.Size = new System.Drawing.Size(117, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "de artículo";
+            this.label2.Text = "de artículos";
             // 
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEliminar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(12, 283);
+            this.btnEliminar.Location = new System.Drawing.Point(12, 328);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 39);
             this.btnEliminar.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnModificar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(12, 328);
+            this.btnModificar.Location = new System.Drawing.Point(12, 261);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(117, 39);
             this.btnModificar.TabIndex = 2;
@@ -90,7 +90,7 @@
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAgregar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(12, 238);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 216);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(117, 39);
             this.btnAgregar.TabIndex = 1;
@@ -108,6 +108,7 @@
             this.dgvListaDeArticulos.Location = new System.Drawing.Point(143, 131);
             this.dgvListaDeArticulos.Name = "dgvListaDeArticulos";
             this.dgvListaDeArticulos.ReadOnly = true;
+            this.dgvListaDeArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaDeArticulos.Size = new System.Drawing.Size(645, 307);
             this.dgvListaDeArticulos.TabIndex = 0;
             // 
@@ -133,15 +134,15 @@
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
-            // label3
+            // lblTitulo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 194);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 19);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "seleccionado";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Trajan Pro", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(201, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(547, 51);
+            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.Text = "Catálogo de artículos";
             // 
             // frmVentanaPrincipal
             // 
@@ -151,8 +152,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.imgIcono);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -182,7 +183,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvListaDeArticulos;
         private System.Windows.Forms.Button btnDetalle;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }
 
