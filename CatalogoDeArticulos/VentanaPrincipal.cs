@@ -49,24 +49,50 @@ namespace CatalogoDeArticulos
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
-            articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
-            //TODO Falta terminar este método
+            try
+            {
+                frmConfirmar confirmar = new frmConfirmar();
+                Articulo articulo = new Articulo();
+                articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
+                confirmar.CargarElementoParaEliminar(articulo);
+                confirmar.ShowDialog();
+                CargarDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmAgregar agregar = new frmAgregar();
-            agregar.ShowDialog();
-            CargarDGV();
+            try
+            {
+                frmAgregar agregar = new frmAgregar();
+                agregar.ShowDialog();
+                CargarDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            frmAgregar modificar = new frmAgregar();
-            Articulo articulo = new Articulo();
-            articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
-            modificar.ConvertirEnModificarArticulo(articulo);
-            modificar.ShowDialog();
-            CargarDGV();
+            try
+            {
+                frmAgregar modificar = new frmAgregar();
+                Articulo articulo = new Articulo();
+                articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
+                modificar.ConvertirEnModificarArticulo(articulo);
+                modificar.ShowDialog();
+                CargarDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
