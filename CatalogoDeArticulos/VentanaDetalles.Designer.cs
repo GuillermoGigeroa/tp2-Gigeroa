@@ -53,11 +53,12 @@
             // 
             // imgArticulo
             // 
-            this.imgArticulo.ErrorImage = global::CatalogoDeArticulos.Properties.Resources.dinero;
+            this.imgArticulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgArticulo.ErrorImage = null;
             this.imgArticulo.Location = new System.Drawing.Point(21, 9);
             this.imgArticulo.Name = "imgArticulo";
             this.imgArticulo.Size = new System.Drawing.Size(160, 160);
-            this.imgArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgArticulo.TabIndex = 6;
             this.imgArticulo.TabStop = false;
             // 

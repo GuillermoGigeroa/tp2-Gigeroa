@@ -65,11 +65,12 @@
             // btnEliminar
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(12, 328);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(117, 39);
-            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -77,6 +78,7 @@
             // btnModificar
             // 
             this.btnModificar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(12, 261);
             this.btnModificar.Name = "btnModificar";
@@ -89,6 +91,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(12, 216);
             this.btnAgregar.Name = "btnAgregar";
@@ -104,11 +107,19 @@
             this.dgvListaDeArticulos.AllowUserToDeleteRows = false;
             this.dgvListaDeArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListaDeArticulos.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dgvListaDeArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvListaDeArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaDeArticulos.Cursor = System.Windows.Forms.Cursors.PanEast;
+            this.dgvListaDeArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvListaDeArticulos.Location = new System.Drawing.Point(143, 131);
+            this.dgvListaDeArticulos.MultiSelect = false;
             this.dgvListaDeArticulos.Name = "dgvListaDeArticulos";
             this.dgvListaDeArticulos.ReadOnly = true;
             this.dgvListaDeArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaDeArticulos.ShowCellErrors = false;
+            this.dgvListaDeArticulos.ShowCellToolTips = false;
+            this.dgvListaDeArticulos.ShowEditingIcon = false;
+            this.dgvListaDeArticulos.ShowRowErrors = false;
             this.dgvListaDeArticulos.Size = new System.Drawing.Size(645, 307);
             this.dgvListaDeArticulos.TabIndex = 0;
             // 
@@ -125,11 +136,12 @@
             // btnDetalle
             // 
             this.btnDetalle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDetalle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDetalle.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDetalle.Location = new System.Drawing.Point(12, 373);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(117, 39);
-            this.btnDetalle.TabIndex = 5;
+            this.btnDetalle.TabIndex = 4;
             this.btnDetalle.Text = "&Ver detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);

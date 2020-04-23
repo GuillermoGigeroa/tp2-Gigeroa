@@ -35,6 +35,13 @@ namespace CatalogoDeArticulos
         {
             try
             {
+                /*
+                if(!(ComprobarSiEstaVacio(txtCodigo)&&ComprobarSiEstaVacio(txtDescripcion)&&ComprobarSiEstaVacio(txtNombre)&&ComprobarSiEstaVacio(txtPrecioEntero)&&ComprobarSiEstaVacio(txtPrecioCentavos)&&ComprobarSiEstaVacio(txtURL)))
+                {
+                    MessageBox.Show("Hay uno o más campos vacíos.");
+                    return;
+                }
+                */
                 Articulo articulo = new Articulo();
                 articulo.CodigoArticulo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
@@ -57,6 +64,19 @@ namespace CatalogoDeArticulos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+        private bool ComprobarSiEstaVacio(TextBox textBox)
+        {
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                textBox.BackColor = Color.Red;
+                return true;
+            }
+            else
+            {
+                textBox.BackColor = System.Drawing.SystemColors.Control;
+                return false;
             }
         }
         private void frmAgregar_Load(object sender, EventArgs e)
