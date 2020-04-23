@@ -124,7 +124,11 @@
             this.Controls.Add(this.lblPregunta);
             this.Controls.Add(this.dgvListaParaEliminar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(685, 186);
+            this.MinimumSize = new System.Drawing.Size(685, 186);
             this.Name = "frmConfirmar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Confirmar";
             this.Load += new System.EventHandler(this.frmConfirmar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaParaEliminar)).EndInit();

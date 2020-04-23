@@ -45,7 +45,19 @@ namespace CatalogoDeArticulos
         }
         private void btnDetalle_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                frmVentanaDetalles detalle = new frmVentanaDetalles();
+                Articulo articulo = new Articulo();
+                articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
+                detalle.CargarDetalles(articulo);
+                detalle.ShowDialog();
+                CargarDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -62,7 +74,6 @@ namespace CatalogoDeArticulos
             {
                 MessageBox.Show(ex.ToString());
             }
-            
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {

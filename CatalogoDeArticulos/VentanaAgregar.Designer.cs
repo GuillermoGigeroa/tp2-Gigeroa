@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregar));
             this.imgIcono = new System.Windows.Forms.PictureBox();
-            this.lblTitulo2 = new System.Windows.Forms.Label();
-            this.lblTitulo1 = new System.Windows.Forms.Label();
-            this.lblAccion = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -52,6 +49,9 @@
             this.txtPrecioCentavos = new System.Windows.Forms.TextBox();
             this.lblComa = new System.Windows.Forms.Label();
             this.lblPesos = new System.Windows.Forms.Label();
+            this.lblTitulo1 = new System.Windows.Forms.Label();
+            this.lblTitulo2 = new System.Windows.Forms.Label();
+            this.lblAccion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,36 +64,6 @@
             this.imgIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgIcono.TabIndex = 5;
             this.imgIcono.TabStop = false;
-            // 
-            // lblTitulo2
-            // 
-            this.lblTitulo2.AutoSize = true;
-            this.lblTitulo2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo2.Location = new System.Drawing.Point(187, 50);
-            this.lblTitulo2.Name = "lblTitulo2";
-            this.lblTitulo2.Size = new System.Drawing.Size(126, 19);
-            this.lblTitulo2.TabIndex = 6;
-            this.lblTitulo2.Text = "de Artículos:";
-            // 
-            // lblTitulo1
-            // 
-            this.lblTitulo1.AutoSize = true;
-            this.lblTitulo1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo1.Location = new System.Drawing.Point(181, 31);
-            this.lblTitulo1.Name = "lblTitulo1";
-            this.lblTitulo1.Size = new System.Drawing.Size(135, 19);
-            this.lblTitulo1.TabIndex = 7;
-            this.lblTitulo1.Text = "Administración";
-            // 
-            // lblAccion
-            // 
-            this.lblAccion.AutoSize = true;
-            this.lblAccion.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccion.Location = new System.Drawing.Point(171, 96);
-            this.lblAccion.Name = "lblAccion";
-            this.lblAccion.Size = new System.Drawing.Size(153, 19);
-            this.lblAccion.TabIndex = 6;
-            this.lblAccion.Text = "Agregar artículo";
             // 
             // txtCodigo
             // 
@@ -289,6 +259,36 @@
             this.lblPesos.TabIndex = 13;
             this.lblPesos.Text = "$";
             // 
+            // lblTitulo1
+            // 
+            this.lblTitulo1.AutoSize = true;
+            this.lblTitulo1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo1.Location = new System.Drawing.Point(181, 31);
+            this.lblTitulo1.Name = "lblTitulo1";
+            this.lblTitulo1.Size = new System.Drawing.Size(135, 19);
+            this.lblTitulo1.TabIndex = 7;
+            this.lblTitulo1.Text = "Administración";
+            // 
+            // lblTitulo2
+            // 
+            this.lblTitulo2.AutoSize = true;
+            this.lblTitulo2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo2.Location = new System.Drawing.Point(187, 50);
+            this.lblTitulo2.Name = "lblTitulo2";
+            this.lblTitulo2.Size = new System.Drawing.Size(126, 19);
+            this.lblTitulo2.TabIndex = 6;
+            this.lblTitulo2.Text = "de Artículos:";
+            // 
+            // lblAccion
+            // 
+            this.lblAccion.AutoSize = true;
+            this.lblAccion.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccion.Location = new System.Drawing.Point(171, 96);
+            this.lblAccion.Name = "lblAccion";
+            this.lblAccion.Size = new System.Drawing.Size(153, 19);
+            this.lblAccion.TabIndex = 6;
+            this.lblAccion.Text = "Agregar artículo";
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +319,9 @@
             this.Controls.Add(this.lblTitulo1);
             this.Controls.Add(this.imgIcono);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(386, 427);
+            this.MinimumSize = new System.Drawing.Size(386, 427);
             this.Name = "frmAgregar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar artículo";
@@ -332,9 +335,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox imgIcono;
-        private System.Windows.Forms.Label lblTitulo2;
-        private System.Windows.Forms.Label lblTitulo1;
-        private System.Windows.Forms.Label lblAccion;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtNombre;
@@ -354,5 +354,8 @@
         private System.Windows.Forms.TextBox txtPrecioCentavos;
         private System.Windows.Forms.Label lblComa;
         private System.Windows.Forms.Label lblPesos;
+        private System.Windows.Forms.Label lblTitulo1;
+        private System.Windows.Forms.Label lblTitulo2;
+        private System.Windows.Forms.Label lblAccion;
     }
 }

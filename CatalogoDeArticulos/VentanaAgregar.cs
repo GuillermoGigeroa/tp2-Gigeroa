@@ -91,9 +91,10 @@ namespace CatalogoDeArticulos
             txtNombre.Text = articulo.Nombre;
             txtDescripcion.Text = articulo.Descripcion;
             //TODO Ver, porque esto no funciona
-            cboMarcas.Text = articulo.Marca.Nombre;
+            //cboMarcas.Text = articulo.Marca.Nombre;
+            cboMarcas.SelectedText = articulo.Marca.Nombre;
             //TODO Ver, porque esto no funciona
-            cboCategorias.Text = articulo.Categoria.Nombre;
+            cboCategorias.SelectedText = articulo.Categoria.Nombre;
             txtURL.Text = articulo.URL_Imagen;
             txtPrecioEntero.Text = ((int)articulo.Precio).ToString();
             txtPrecioCentavos.Text = ((int)((articulo.Precio - Math.Truncate(articulo.Precio))*1000)).ToString();
