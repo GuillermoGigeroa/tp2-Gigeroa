@@ -49,8 +49,8 @@ namespace CatalogoDeArticulos
                 if (ComprobarSiEstaVacio(txtURL)){MessageBox.Show("Hay uno o más campos vacíos.");return;}
                 if (ComprobarSiEstaVacio(txtPrecioEntero)){MessageBox.Show("Hay uno o más campos vacíos.");return;}
                 if (ComprobarSiEstaVacio(txtPrecioCentavos)){MessageBox.Show("Hay uno o más campos vacíos.");return;}
-                if (cboMarcas.SelectedText == "Marca"){MessageBox.Show("La marca cargada no existe."); return; }
-                if (cboCategorias.SelectedText == "Categoría"){MessageBox.Show("La categoría cargada no existe."); return; }
+                if (cboMarcas.SelectedValue == null){MessageBox.Show("La marca cargada no existe."); return; }
+                if (cboCategorias.SelectedValue == null){MessageBox.Show("La categoría cargada no existe."); return; }
                 Articulo articulo = new Articulo();
                 articulo.CodigoArticulo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
