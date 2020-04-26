@@ -46,6 +46,11 @@ namespace CatalogoDeArticulos
             {
                 frmVentanaDetalles detalle = new frmVentanaDetalles();
                 Articulo articulo = new Articulo();
+                if (dgvListaDeArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se ha seleccionado ningún elemento.");
+                    return;
+                }
                 articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
                 detalle.CargarDetalles(articulo);
                 detalle.ShowDialog();
@@ -62,6 +67,11 @@ namespace CatalogoDeArticulos
             {
                 frmConfirmar confirmar = new frmConfirmar();
                 Articulo articulo = new Articulo();
+                if (dgvListaDeArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se ha seleccionado ningún elemento.");
+                    return;
+                }
                 articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
                 confirmar.CargarElementoParaEliminar(articulo);
                 confirmar.ShowDialog();
@@ -91,6 +101,11 @@ namespace CatalogoDeArticulos
             try
             {
                 Articulo articulo = new Articulo();
+                if(dgvListaDeArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se ha seleccionado ningún elemento.");
+                    return;
+                }
                 articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
                 frmAgregar modificar = new frmAgregar(articulo);
                 modificar.ShowDialog();
