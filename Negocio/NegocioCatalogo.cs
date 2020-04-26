@@ -17,7 +17,7 @@ namespace Negocio
             {
                 Datos datos = new Datos();
                 datos.ConfigurarConexion();
-                datos.IngresarComando("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as [Marca], A.IdCategoria, C.Descripcion as [Categoria], A.ImagenUrl, A.Precio FROM ARTICULOS as A left join CATEGORIAS as C on A.IdCategoria = C.Id left join MARCAS as M on A.IdMarca = M.Id");
+                datos.IngresarComando("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion as [Marca], A.IdCategoria, C.Descripcion as [Categoria], A.ImagenUrl, A.Precio FROM ARTICULOS as A left join CATEGORIAS as C on A.IdCategoria = C.Id left join MARCAS as M on A.IdMarca = M.Id ORDER BY Precio");
                 datos.ConectarDB();
                 datos.PrepararLectura();
                 SqlDataReader datosLeidos;
@@ -25,19 +25,87 @@ namespace Negocio
                 while (datos.Leer())
                 {
                     datosLeidos = datos.Lectura();
-                    articulo = new Articulo
+                    articulo = new Articulo();
+                    if(!Convert.IsDBNull(datosLeidos["ID"]))
                     {
-                        ID_Articulo = (int)datosLeidos["Id"],
-                        CodigoArticulo = datosLeidos["Codigo"].ToString(),
-                        Nombre = datosLeidos["Nombre"].ToString(),
-                        Descripcion = datosLeidos["Descripcion"].ToString(),
-                        URL_Imagen = datosLeidos["ImagenUrl"].ToString(),
-                        Precio = (decimal)datosLeidos["Precio"]
-                    };
-                    articulo.Marca.ID_Marca = (int)datosLeidos["IdMarca"];
-                    articulo.Marca.Nombre = datosLeidos["Marca"].ToString();
-                    articulo.Categoria.ID_Categoria = (int)datosLeidos["IDCategoria"];
-                    articulo.Categoria.Nombre = datosLeidos["Categoria"].ToString();
+                        articulo.ID_Articulo = (int) datosLeidos["Id"];
+                    }
+                    else
+                    {
+                        articulo.ID_Articulo = -1;
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Codigo"]))
+                    {
+                        articulo.CodigoArticulo = datosLeidos["Codigo"].ToString();
+                    }
+                    else
+                    {
+                        articulo.CodigoArticulo = "N/A";
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Nombre"]))
+                    {
+                        articulo.Nombre = datosLeidos["Nombre"].ToString();
+                    }
+                    else
+                    {
+                        articulo.Nombre = "N/A";
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Descripcion"]))
+                    {
+                        articulo.Descripcion = datosLeidos["Descripcion"].ToString();
+                    }
+                    else
+                    {
+                        articulo.Descripcion = "N/A";
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["ImagenUrl"]))
+                    {
+                        articulo.URL_Imagen = datosLeidos["ImagenUrl"].ToString();
+                    }
+                    else
+                    {
+                        articulo.URL_Imagen = "N/A";
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Precio"]))
+                    {
+                        articulo.Precio = (decimal)datosLeidos["Precio"];
+                    }
+                    else
+                    {
+                        articulo.Precio = -1;
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["IdMarca"]))
+                    {
+                        articulo.Marca.ID_Marca = (int)datosLeidos["IdMarca"];
+                    }
+                    else
+                    {
+                        articulo.Marca.ID_Marca = -1;
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Marca"]))
+                    {
+                        articulo.Marca.Nombre = datosLeidos["Marca"].ToString();
+                    }
+                    else
+                    {
+                        articulo.Marca.Nombre = "N/A";
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["IDCategoria"]))
+                    {
+                        articulo.Categoria.ID_Categoria = (int)datosLeidos["IDCategoria"];
+                    }
+                    else
+                    {
+                        articulo.Categoria.ID_Categoria = -1;
+                    }
+                    if (!Convert.IsDBNull(datosLeidos["Categoria"]))
+                    {
+                        articulo.Categoria.Nombre = datosLeidos["Categoria"].ToString();
+                    }
+                    else
+                    {
+                        articulo.Categoria.Nombre = "N/A";
+                    }
                     listado.Add(articulo);
                 }
                 return listado;

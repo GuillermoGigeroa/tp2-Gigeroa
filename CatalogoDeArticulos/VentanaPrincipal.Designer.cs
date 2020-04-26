@@ -38,8 +38,18 @@
             this.imgIcono = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtBuscarMarca = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtBuscarCodigo = new System.Windows.Forms.TextBox();
+            this.grupoFiltros = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
+            this.grupoFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -156,12 +166,103 @@
             this.lblTitulo.TabIndex = 3;
             this.lblTitulo.Text = "Catálogo de artículos";
             // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(378, 14);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(63, 19);
+            this.lblMarca.TabIndex = 3;
+            this.lblMarca.Text = "Marcas";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoria.Location = new System.Drawing.Point(526, 14);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(99, 19);
+            this.lblCategoria.TabIndex = 3;
+            this.lblCategoria.Text = "Categorías";
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Location = new System.Drawing.Point(494, 37);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.Size = new System.Drawing.Size(156, 23);
+            this.txtCategoria.TabIndex = 5;
+            this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
+            // 
+            // txtBuscarMarca
+            // 
+            this.txtBuscarMarca.Location = new System.Drawing.Point(332, 37);
+            this.txtBuscarMarca.Name = "txtBuscarMarca";
+            this.txtBuscarMarca.Size = new System.Drawing.Size(156, 23);
+            this.txtBuscarMarca.TabIndex = 5;
+            this.txtBuscarMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarMarca_KeyPress);
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(216, 14);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(63, 19);
+            this.lblNombre.TabIndex = 3;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // txtBuscarNombre
+            // 
+            this.txtBuscarNombre.Location = new System.Drawing.Point(170, 37);
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(156, 23);
+            this.txtBuscarNombre.TabIndex = 5;
+            this.txtBuscarNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarNombre_KeyPress);
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(50, 14);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(63, 19);
+            this.lblCodigo.TabIndex = 3;
+            this.lblCodigo.Text = "Codigo";
+            // 
+            // txtBuscarCodigo
+            // 
+            this.txtBuscarCodigo.Location = new System.Drawing.Point(8, 36);
+            this.txtBuscarCodigo.Name = "txtBuscarCodigo";
+            this.txtBuscarCodigo.Size = new System.Drawing.Size(156, 23);
+            this.txtBuscarCodigo.TabIndex = 5;
+            this.txtBuscarCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCodigo_KeyPress);
+            // 
+            // grupoFiltros
+            // 
+            this.grupoFiltros.Controls.Add(this.txtBuscarCodigo);
+            this.grupoFiltros.Controls.Add(this.txtBuscarNombre);
+            this.grupoFiltros.Controls.Add(this.txtBuscarMarca);
+            this.grupoFiltros.Controls.Add(this.txtCategoria);
+            this.grupoFiltros.Controls.Add(this.lblCategoria);
+            this.grupoFiltros.Controls.Add(this.lblCodigo);
+            this.grupoFiltros.Controls.Add(this.lblNombre);
+            this.grupoFiltros.Controls.Add(this.lblMarca);
+            this.grupoFiltros.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grupoFiltros.Location = new System.Drawing.Point(138, 66);
+            this.grupoFiltros.Name = "grupoFiltros";
+            this.grupoFiltros.Size = new System.Drawing.Size(658, 63);
+            this.grupoFiltros.TabIndex = 6;
+            this.grupoFiltros.TabStop = false;
+            this.grupoFiltros.Text = "Filtros";
+            // 
             // frmVentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.grupoFiltros);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.imgIcono);
             this.Controls.Add(this.label2);
@@ -181,6 +282,8 @@
             this.Load += new System.EventHandler(this.frmVentanaPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).EndInit();
+            this.grupoFiltros.ResumeLayout(false);
+            this.grupoFiltros.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +299,15 @@
         private System.Windows.Forms.DataGridView dgvListaDeArticulos;
         private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.TextBox txtBuscarMarca;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.TextBox txtBuscarCodigo;
+        private System.Windows.Forms.GroupBox grupoFiltros;
     }
 }
 

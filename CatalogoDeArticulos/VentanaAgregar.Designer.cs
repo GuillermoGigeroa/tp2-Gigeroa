@@ -37,9 +37,7 @@
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.cboMarcas = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.cboCategorias = new System.Windows.Forms.ComboBox();
             this.lblURL = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
@@ -52,6 +50,8 @@
             this.lblTitulo1 = new System.Windows.Forms.Label();
             this.lblTitulo2 = new System.Windows.Forms.Label();
             this.lblAccion = new System.Windows.Forms.Label();
+            this.cboCategorias = new System.Windows.Forms.ComboBox();
+            this.cboMarcas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,16 +133,6 @@
             this.lblMarca.Text = "Marca:";
             this.lblMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cboMarcas
-            // 
-            this.cboMarcas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMarcas.FormattingEnabled = true;
-            this.cboMarcas.Location = new System.Drawing.Point(102, 230);
-            this.cboMarcas.Name = "cboMarcas";
-            this.cboMarcas.Size = new System.Drawing.Size(250, 21);
-            this.cboMarcas.TabIndex = 4;
-            // 
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
@@ -153,16 +143,6 @@
             this.lblCategoria.TabIndex = 9;
             this.lblCategoria.Text = "Categoria:";
             this.lblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cboCategorias
-            // 
-            this.cboCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategorias.FormattingEnabled = true;
-            this.cboCategorias.Location = new System.Drawing.Point(102, 257);
-            this.cboCategorias.Name = "cboCategorias";
-            this.cboCategorias.Size = new System.Drawing.Size(250, 21);
-            this.cboCategorias.TabIndex = 5;
             // 
             // lblURL
             // 
@@ -289,6 +269,24 @@
             this.lblAccion.TabIndex = 6;
             this.lblAccion.Text = "Agregar artículo";
             // 
+            // cboCategorias
+            // 
+            this.cboCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboCategorias.Location = new System.Drawing.Point(102, 257);
+            this.cboCategorias.Name = "cboCategorias";
+            this.cboCategorias.Size = new System.Drawing.Size(250, 21);
+            this.cboCategorias.TabIndex = 5;
+            this.cboCategorias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboCategorias_KeyPress);
+            // 
+            // cboMarcas
+            // 
+            this.cboMarcas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboMarcas.Location = new System.Drawing.Point(102, 230);
+            this.cboMarcas.Name = "cboMarcas";
+            this.cboMarcas.Size = new System.Drawing.Size(250, 21);
+            this.cboMarcas.TabIndex = 4;
+            this.cboMarcas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboMarcas_KeyPress);
+            // 
             // frmAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,9 +340,7 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.ComboBox cboMarcas;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.Label lblURL;
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Label lblPrecio;
@@ -357,5 +353,7 @@
         private System.Windows.Forms.Label lblTitulo1;
         private System.Windows.Forms.Label lblTitulo2;
         private System.Windows.Forms.Label lblAccion;
+        private System.Windows.Forms.ComboBox cboCategorias;
+        private System.Windows.Forms.ComboBox cboMarcas;
     }
 }

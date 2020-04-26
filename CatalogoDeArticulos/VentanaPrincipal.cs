@@ -105,5 +105,21 @@ namespace CatalogoDeArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void txtBuscarCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+        private void txtBuscarNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+        private void txtBuscarMarca_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
