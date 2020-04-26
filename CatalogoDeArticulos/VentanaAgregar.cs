@@ -15,10 +15,18 @@ namespace CatalogoDeArticulos
     public partial class frmAgregar : Form
     {
         Articulo articuloRecibido;
+        bool esModificar = false;
         public frmAgregar()
         {
             InitializeComponent();
             articuloRecibido = new Articulo();
+        }
+        public frmAgregar(Articulo articulo)
+        {
+            InitializeComponent();
+            articuloRecibido = new Articulo();
+            this.esModificar = true;
+            articuloRecibido = articulo;
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -86,18 +94,14 @@ namespace CatalogoDeArticulos
             try
             {
                 NegocioCatalogo negocio = new NegocioCatalogo();
+                cboMarcas.DataSource = negocio.ListarMarcas();
                 cboMarcas.DisplayMember = "Nombre";
                 cboMarcas.ValueMember = "ID_Marca";
-                cboMarcas.DataSource = negocio.ListarMarcas();
+                cboCategorias.DataSource = negocio.ListarCategorias();
                 cboCategorias.DisplayMember = "Nombre";
                 cboCategorias.ValueMember = "ID_Categoria";
-                cboCategorias.DataSource = negocio.ListarCategorias();
-                cboMarcas.AutoCompleteMode = AutoCompleteMode.Append;
-                cboMarcas.DropDownStyle = ComboBoxStyle.DropDown;
-                cboMarcas.AutoCompleteSource = AutoCompleteSource.ListItems;
-                cboCategorias.AutoCompleteMode = AutoCompleteMode.Append;
-                cboCategorias.DropDownStyle = ComboBoxStyle.DropDown;
-                cboCategorias.AutoCompleteSource = AutoCompleteSource.ListItems;
+                if (esModificar)
+                    ConvertirEnModificarArticulo(articuloRecibido);
             }
             catch (Exception ex)
             {
@@ -114,7 +118,7 @@ namespace CatalogoDeArticulos
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
-        public void ConvertirEnModificarArticulo(Articulo articulo)
+        private void ConvertirEnModificarArticulo(Articulo articulo)
         {
             try
             {

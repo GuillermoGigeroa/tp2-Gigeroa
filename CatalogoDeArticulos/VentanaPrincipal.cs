@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Dominio;
 using Negocio;
-using Dominio;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace CatalogoDeArticulos
 {
     public partial class frmVentanaPrincipal : Form
     {
+        private List<Articulo> listaDeArticulos;
+        private List<Articulo> listaFiltrada;
         public frmVentanaPrincipal()
         {
             InitializeComponent();
@@ -23,7 +19,8 @@ namespace CatalogoDeArticulos
             try
             {
                 NegocioCatalogo negocio = new NegocioCatalogo();
-                dgvListaDeArticulos.DataSource = negocio.ListarArticulos();
+                listaDeArticulos = negocio.ListarArticulos();
+                dgvListaDeArticulos.DataSource = listaDeArticulos;
                 dgvListaDeArticulos.Columns[0].Visible = false;//Oculto la columna que tiene el ID del artículo
                 dgvListaDeArticulos.Columns[4].Visible = false;//Oculto la columna que tiene la URL de la imagen
             }
@@ -87,16 +84,15 @@ namespace CatalogoDeArticulos
             {
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                frmAgregar modificar = new frmAgregar();
                 Articulo articulo = new Articulo();
                 articulo = (Articulo)dgvListaDeArticulos.CurrentRow.DataBoundItem;
-                modificar.ConvertirEnModificarArticulo(articulo);
+                frmAgregar modificar = new frmAgregar(articulo);
                 modificar.ShowDialog();
                 CargarDGV();
             }
@@ -105,21 +101,132 @@ namespace CatalogoDeArticulos
                 MessageBox.Show(ex.ToString());
             }
         }
-        private void txtBuscarCodigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-        private void txtBuscarNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
-        }
-        private void txtBuscarMarca_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtBuscarCodigo_TextChanged(object sender, EventArgs e)
         {
-
+            try
+            {
+                List<Articulo> listaFiltrada;
+                if (txtBuscarCodigo.Text == "")
+                {
+                    listaFiltrada = listaDeArticulos;
+                }
+                else
+                {
+                    listaFiltrada = listaDeArticulos.FindAll(articulo => articulo.CodigoArticulo.ToLower().Contains(txtBuscarCodigo.Text.Trim().ToLower()));
+                }
+                dgvListaDeArticulos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
-        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
+        private void txtBuscarNombre_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Articulo> listaFiltrada;
+                if (txtBuscarNombre.Text == "")
+                {
+                    listaFiltrada = listaDeArticulos;
+                }
+                else
+                {
+                    listaFiltrada = listaDeArticulos.FindAll(articulo => articulo.Nombre.ToLower().Contains(txtBuscarNombre.Text.Trim().ToLower()));
+                }
+                dgvListaDeArticulos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void txtBuscarMarca_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Articulo> listaFiltrada;
+                if (txtBuscarMarca.Text == "")
+                {
+                    listaFiltrada = listaDeArticulos;
+                }
+                else
+                {
+                    listaFiltrada = listaDeArticulos.FindAll(articulo => articulo.Marca.Nombre.ToLower().Contains(txtBuscarMarca.Text.Trim().ToLower()));
+                }
+                dgvListaDeArticulos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void txtCategoria_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Articulo> listaFiltrada;
+                if (txtBuscarCategoria.Text == "")
+                {
+                    listaFiltrada = listaDeArticulos;
+                }
+                else
+                {
+                    listaFiltrada = listaDeArticulos.FindAll(articulo => articulo.Categoria.Nombre.ToLower().Contains(txtBuscarCategoria.Text.Trim().ToLower()));
+                }
+                dgvListaDeArticulos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void imgBorrarCodigo_Click(object sender, EventArgs e)
+        {
+            txtBuscarCodigo.Text = "";
+        }
+        private void imgBorrarNombre_Click(object sender, EventArgs e)
+        {
+            txtBuscarNombre.Text = "";
+        }
+        private void imgBorrarMarcas_Click(object sender, EventArgs e)
+        {
+            txtBuscarMarca.Text = "";
+        }
+        private void imgBorrarCategorias_Click(object sender, EventArgs e)
+        {
+            txtBuscarCategoria.Text = "";
+        }
+        private void txtBuscarCodigo_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarCodigo.Enabled = true;
+            txtBuscarNombre.Text = "";
+            txtBuscarMarca.Text = "";
+            txtBuscarCategoria.Text = "";
+        }
+        private void txtBuscarNombre_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarNombre.Enabled = true;
+            txtBuscarCodigo.Text = "";
+            txtBuscarMarca.Text = "";
+            txtBuscarCategoria.Text = "";
+        }
+
+        private void txtBuscarMarca_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarCodigo.Text = "";
+            txtBuscarNombre.Text = "";
+            txtBuscarCategoria.Text = "";
+        }
+
+        private void txtBuscarCategoria_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtBuscarCategoria.Enabled = true;
+            txtBuscarCodigo.Text = "";
+            txtBuscarNombre.Text = "";
+            txtBuscarMarca.Text = "";
         }
     }
 }

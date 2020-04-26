@@ -50,8 +50,8 @@
             this.lblTitulo1 = new System.Windows.Forms.Label();
             this.lblTitulo2 = new System.Windows.Forms.Label();
             this.lblAccion = new System.Windows.Forms.Label();
-            this.cboCategorias = new System.Windows.Forms.ComboBox();
             this.cboMarcas = new System.Windows.Forms.ComboBox();
+            this.cboCategorias = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,23 +269,25 @@
             this.lblAccion.TabIndex = 6;
             this.lblAccion.Text = "Agregar artículo";
             // 
+            // cboMarcas
+            // 
+            this.cboMarcas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboMarcas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMarcas.Location = new System.Drawing.Point(102, 231);
+            this.cboMarcas.Name = "cboMarcas";
+            this.cboMarcas.Size = new System.Drawing.Size(250, 21);
+            this.cboMarcas.TabIndex = 4;
+            // 
             // cboCategorias
             // 
-            this.cboCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboCategorias.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboCategorias.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategorias.Location = new System.Drawing.Point(102, 257);
             this.cboCategorias.Name = "cboCategorias";
             this.cboCategorias.Size = new System.Drawing.Size(250, 21);
             this.cboCategorias.TabIndex = 5;
-            this.cboCategorias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboCategorias_KeyPress);
-            // 
-            // cboMarcas
-            // 
-            this.cboMarcas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cboMarcas.Location = new System.Drawing.Point(102, 230);
-            this.cboMarcas.Name = "cboMarcas";
-            this.cboMarcas.Size = new System.Drawing.Size(250, 21);
-            this.cboMarcas.TabIndex = 4;
-            this.cboMarcas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboMarcas_KeyPress);
             // 
             // frmAgregar
             // 
@@ -293,11 +295,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(370, 388);
+            this.Controls.Add(this.cboCategorias);
+            this.Controls.Add(this.cboMarcas);
             this.Controls.Add(this.lblPesos);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.cboCategorias);
-            this.Controls.Add(this.cboMarcas);
             this.Controls.Add(this.txtPrecioCentavos);
             this.Controls.Add(this.txtPrecioEntero);
             this.Controls.Add(this.txtURL);
@@ -353,7 +355,7 @@
         private System.Windows.Forms.Label lblTitulo1;
         private System.Windows.Forms.Label lblTitulo2;
         private System.Windows.Forms.Label lblAccion;
-        private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.ComboBox cboMarcas;
+        private System.Windows.Forms.ComboBox cboCategorias;
     }
 }

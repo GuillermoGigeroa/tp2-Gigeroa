@@ -35,21 +35,29 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvListaDeArticulos = new System.Windows.Forms.DataGridView();
-            this.imgIcono = new System.Windows.Forms.PictureBox();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.txtBuscarMarca = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtBuscarCodigo = new System.Windows.Forms.TextBox();
             this.grupoFiltros = new System.Windows.Forms.GroupBox();
+            this.imgBorrarCodigo = new System.Windows.Forms.PictureBox();
+            this.imgIcono = new System.Windows.Forms.PictureBox();
+            this.imgBorrarNombre = new System.Windows.Forms.PictureBox();
+            this.imgBorrarMarcas = new System.Windows.Forms.PictureBox();
+            this.imgBorrarCategorias = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
             this.grupoFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarNombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarMarcas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarCategorias)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +124,7 @@
             this.dgvListaDeArticulos.AllowUserToAddRows = false;
             this.dgvListaDeArticulos.AllowUserToDeleteRows = false;
             this.dgvListaDeArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListaDeArticulos.BackgroundColor = System.Drawing.Color.LightBlue;
+            this.dgvListaDeArticulos.BackgroundColor = System.Drawing.Color.Lavender;
             this.dgvListaDeArticulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvListaDeArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeArticulos.Cursor = System.Windows.Forms.Cursors.PanEast;
@@ -132,16 +140,6 @@
             this.dgvListaDeArticulos.ShowRowErrors = false;
             this.dgvListaDeArticulos.Size = new System.Drawing.Size(645, 307);
             this.dgvListaDeArticulos.TabIndex = 0;
-            // 
-            // imgIcono
-            // 
-            this.imgIcono.Image = global::CatalogoDeArticulos.Properties.Resources.dinero;
-            this.imgIcono.Location = new System.Drawing.Point(9, 10);
-            this.imgIcono.Name = "imgIcono";
-            this.imgIcono.Size = new System.Drawing.Size(120, 120);
-            this.imgIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgIcono.TabIndex = 4;
-            this.imgIcono.TabStop = false;
             // 
             // btnDetalle
             // 
@@ -170,7 +168,7 @@
             // 
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(378, 14);
+            this.lblMarca.Location = new System.Drawing.Point(370, 14);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(63, 19);
             this.lblMarca.TabIndex = 3;
@@ -180,33 +178,37 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(526, 14);
+            this.lblCategoria.Location = new System.Drawing.Point(519, 14);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(99, 19);
             this.lblCategoria.TabIndex = 3;
             this.lblCategoria.Text = "Categorías";
             // 
-            // txtCategoria
+            // txtBuscarCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(494, 37);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(156, 23);
-            this.txtCategoria.TabIndex = 5;
-            this.txtCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoria_KeyPress);
+            this.txtBuscarCategoria.Location = new System.Drawing.Point(494, 37);
+            this.txtBuscarCategoria.MaxLength = 24;
+            this.txtBuscarCategoria.Name = "txtBuscarCategoria";
+            this.txtBuscarCategoria.Size = new System.Drawing.Size(145, 23);
+            this.txtBuscarCategoria.TabIndex = 7;
+            this.txtBuscarCategoria.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarCategoria_MouseClick);
+            this.txtBuscarCategoria.TextChanged += new System.EventHandler(this.txtCategoria_TextChanged);
             // 
             // txtBuscarMarca
             // 
             this.txtBuscarMarca.Location = new System.Drawing.Point(332, 37);
+            this.txtBuscarMarca.MaxLength = 24;
             this.txtBuscarMarca.Name = "txtBuscarMarca";
-            this.txtBuscarMarca.Size = new System.Drawing.Size(156, 23);
-            this.txtBuscarMarca.TabIndex = 5;
-            this.txtBuscarMarca.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarMarca_KeyPress);
+            this.txtBuscarMarca.Size = new System.Drawing.Size(145, 23);
+            this.txtBuscarMarca.TabIndex = 6;
+            this.txtBuscarMarca.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarMarca_MouseClick);
+            this.txtBuscarMarca.TextChanged += new System.EventHandler(this.txtBuscarMarca_TextChanged);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(216, 14);
+            this.lblNombre.Location = new System.Drawing.Point(213, 14);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(63, 19);
             this.lblNombre.TabIndex = 3;
@@ -215,16 +217,18 @@
             // txtBuscarNombre
             // 
             this.txtBuscarNombre.Location = new System.Drawing.Point(170, 37);
+            this.txtBuscarNombre.MaxLength = 24;
             this.txtBuscarNombre.Name = "txtBuscarNombre";
-            this.txtBuscarNombre.Size = new System.Drawing.Size(156, 23);
-            this.txtBuscarNombre.TabIndex = 5;
-            this.txtBuscarNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarNombre_KeyPress);
+            this.txtBuscarNombre.Size = new System.Drawing.Size(145, 23);
+            this.txtBuscarNombre.TabIndex = 6;
+            this.txtBuscarNombre.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarNombre_MouseClick);
+            this.txtBuscarNombre.TextChanged += new System.EventHandler(this.txtBuscarNombre_TextChanged);
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(50, 14);
+            this.lblCodigo.Location = new System.Drawing.Point(45, 14);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(63, 19);
             this.lblCodigo.TabIndex = 3;
@@ -232,18 +236,24 @@
             // 
             // txtBuscarCodigo
             // 
-            this.txtBuscarCodigo.Location = new System.Drawing.Point(8, 36);
+            this.txtBuscarCodigo.Location = new System.Drawing.Point(8, 37);
+            this.txtBuscarCodigo.MaxLength = 24;
             this.txtBuscarCodigo.Name = "txtBuscarCodigo";
-            this.txtBuscarCodigo.Size = new System.Drawing.Size(156, 23);
+            this.txtBuscarCodigo.Size = new System.Drawing.Size(145, 23);
             this.txtBuscarCodigo.TabIndex = 5;
-            this.txtBuscarCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarCodigo_KeyPress);
+            this.txtBuscarCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtBuscarCodigo_MouseClick);
+            this.txtBuscarCodigo.TextChanged += new System.EventHandler(this.txtBuscarCodigo_TextChanged);
             // 
             // grupoFiltros
             // 
+            this.grupoFiltros.Controls.Add(this.imgBorrarCategorias);
+            this.grupoFiltros.Controls.Add(this.imgBorrarMarcas);
+            this.grupoFiltros.Controls.Add(this.imgBorrarNombre);
+            this.grupoFiltros.Controls.Add(this.imgBorrarCodigo);
             this.grupoFiltros.Controls.Add(this.txtBuscarCodigo);
             this.grupoFiltros.Controls.Add(this.txtBuscarNombre);
             this.grupoFiltros.Controls.Add(this.txtBuscarMarca);
-            this.grupoFiltros.Controls.Add(this.txtCategoria);
+            this.grupoFiltros.Controls.Add(this.txtBuscarCategoria);
             this.grupoFiltros.Controls.Add(this.lblCategoria);
             this.grupoFiltros.Controls.Add(this.lblCodigo);
             this.grupoFiltros.Controls.Add(this.lblNombre);
@@ -255,6 +265,60 @@
             this.grupoFiltros.TabIndex = 6;
             this.grupoFiltros.TabStop = false;
             this.grupoFiltros.Text = "Filtros";
+            // 
+            // imgBorrarCodigo
+            // 
+            this.imgBorrarCodigo.Image = global::CatalogoDeArticulos.Properties.Resources.cruz_entrecruzada;
+            this.imgBorrarCodigo.Location = new System.Drawing.Point(153, 38);
+            this.imgBorrarCodigo.Name = "imgBorrarCodigo";
+            this.imgBorrarCodigo.Size = new System.Drawing.Size(17, 20);
+            this.imgBorrarCodigo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBorrarCodigo.TabIndex = 8;
+            this.imgBorrarCodigo.TabStop = false;
+            this.imgBorrarCodigo.Click += new System.EventHandler(this.imgBorrarCodigo_Click);
+            // 
+            // imgIcono
+            // 
+            this.imgIcono.Image = global::CatalogoDeArticulos.Properties.Resources.dinero;
+            this.imgIcono.Location = new System.Drawing.Point(9, 10);
+            this.imgIcono.Name = "imgIcono";
+            this.imgIcono.Size = new System.Drawing.Size(120, 120);
+            this.imgIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgIcono.TabIndex = 4;
+            this.imgIcono.TabStop = false;
+            // 
+            // imgBorrarNombre
+            // 
+            this.imgBorrarNombre.Image = global::CatalogoDeArticulos.Properties.Resources.cruz_entrecruzada;
+            this.imgBorrarNombre.Location = new System.Drawing.Point(315, 38);
+            this.imgBorrarNombre.Name = "imgBorrarNombre";
+            this.imgBorrarNombre.Size = new System.Drawing.Size(17, 20);
+            this.imgBorrarNombre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBorrarNombre.TabIndex = 8;
+            this.imgBorrarNombre.TabStop = false;
+            this.imgBorrarNombre.Click += new System.EventHandler(this.imgBorrarNombre_Click);
+            // 
+            // imgBorrarMarcas
+            // 
+            this.imgBorrarMarcas.Image = global::CatalogoDeArticulos.Properties.Resources.cruz_entrecruzada;
+            this.imgBorrarMarcas.Location = new System.Drawing.Point(477, 38);
+            this.imgBorrarMarcas.Name = "imgBorrarMarcas";
+            this.imgBorrarMarcas.Size = new System.Drawing.Size(17, 20);
+            this.imgBorrarMarcas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBorrarMarcas.TabIndex = 8;
+            this.imgBorrarMarcas.TabStop = false;
+            this.imgBorrarMarcas.Click += new System.EventHandler(this.imgBorrarMarcas_Click);
+            // 
+            // imgBorrarCategorias
+            // 
+            this.imgBorrarCategorias.Image = global::CatalogoDeArticulos.Properties.Resources.cruz_entrecruzada;
+            this.imgBorrarCategorias.Location = new System.Drawing.Point(639, 38);
+            this.imgBorrarCategorias.Name = "imgBorrarCategorias";
+            this.imgBorrarCategorias.Size = new System.Drawing.Size(17, 20);
+            this.imgBorrarCategorias.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgBorrarCategorias.TabIndex = 8;
+            this.imgBorrarCategorias.TabStop = false;
+            this.imgBorrarCategorias.Click += new System.EventHandler(this.imgBorrarCategorias_Click);
             // 
             // frmVentanaPrincipal
             // 
@@ -281,9 +345,13 @@
             this.Text = "Catalogo de artículos";
             this.Load += new System.EventHandler(this.frmVentanaPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).EndInit();
             this.grupoFiltros.ResumeLayout(false);
             this.grupoFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgIcono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarNombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarMarcas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBorrarCategorias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,13 +369,17 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblCategoria;
-        private System.Windows.Forms.TextBox txtCategoria;
+        private System.Windows.Forms.TextBox txtBuscarCategoria;
         private System.Windows.Forms.TextBox txtBuscarMarca;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtBuscarNombre;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.TextBox txtBuscarCodigo;
         private System.Windows.Forms.GroupBox grupoFiltros;
+        private System.Windows.Forms.PictureBox imgBorrarCodigo;
+        private System.Windows.Forms.PictureBox imgBorrarCategorias;
+        private System.Windows.Forms.PictureBox imgBorrarMarcas;
+        private System.Windows.Forms.PictureBox imgBorrarNombre;
     }
 }
 

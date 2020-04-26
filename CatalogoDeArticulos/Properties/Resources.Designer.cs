@@ -63,6 +63,16 @@ namespace CatalogoDeArticulos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cruz_entrecruzada {
+            get {
+                object obj = ResourceManager.GetObject("cruz-entrecruzada", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dinero {
             get {
                 object obj = ResourceManager.GetObject("dinero", resourceCulture);

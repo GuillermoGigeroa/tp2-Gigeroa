@@ -124,6 +124,7 @@
     <None Include="dinero.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cruz-entrecruzada.png" />
     <Content Include="dinero.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
