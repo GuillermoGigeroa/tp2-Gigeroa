@@ -29,7 +29,10 @@ namespace Dominio
             ElementoCarrito elemento = new ElementoCarrito();
             elemento.articulo = articulo;
             elemento.cantidad = cantidad;
-            ListaDeElementos.Add(elemento);
+            for(int x = 1; x <= cantidad; x += 1)
+            {
+                ListaDeElementos.Add(elemento);
+            }
         }
     }
 }
