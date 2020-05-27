@@ -4,7 +4,7 @@
     <div class="navbar navbar-dark bg-dark">
         <div class="container">
             <div class="row">
-                <div class="col" style="padding: 10px">
+                <div class="col" style="padding: 10px;">
                     <a href="VerCarrito.aspx" class="alert alert-success" style="text-align: center;">Mi carrito [<%= ContarCarrito()%>] - Subtotal $<%= SubtotalCarrito()%></a>
                 </div>
             </div>

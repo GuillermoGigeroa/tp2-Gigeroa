@@ -1,17 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VerCarrito.aspx.cs" Inherits="CatalogoWebCarrito.VerCarrito" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <nav class="navbar navbar-dark bg-dark">
+    <div class="navbar navbar-dark bg-dark">
         <div class="container">
-            <div class="row justify-content-between" style="padding: 10px">
-                <p class="alert alert-info">Elementos en carrito: <%= ContarCarrito()%></p>
+            <div class="row">
+                <p class="alert alert-warning">Elementos en carrito: <%= ContarCarrito()%></p>
+                <p style="width: 10px"></p>
+                <p class="alert alert-warning">Subtotal: $<%= SubtotalCarrito()%></p>
+                <p style="width: 400px"></p>
                 <a href="Index.aspx" class="alert alert-success">Volver a catálogo</a>
             </div>
         </div>
-    </nav>
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container" style="padding: 10px;">
         <div class="jumbotron">
             <div class="container">
                 <div class="row justify-content-center">

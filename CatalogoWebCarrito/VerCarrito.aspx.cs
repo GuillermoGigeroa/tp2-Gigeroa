@@ -26,5 +26,11 @@ namespace CatalogoWebCarrito
                 return 0;
             return carrito.ListaDeElementos.Count();
         }
+        protected double SubtotalCarrito()
+        {
+            if (carrito == null)
+                return 0;
+            return carrito.Subtotal();
+        }
     }
 }
