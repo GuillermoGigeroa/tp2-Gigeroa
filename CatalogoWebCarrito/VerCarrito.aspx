@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VerCarrito.aspx.cs" Inherits="CatalogoWebCarrito.VerCarrito" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-left:none;border-right:none;border-bottom:dashed;border-top:dashed;border-width:1px;border-color:white;">
-        <a class="navbar-brand" href="Index.aspx">Ver catálogo</a>
+        <a class="btn btn-outline-light" style="margin-right:15px;" href="Index.aspx"><strong>Ver catálogo</strong></a>
         <a class="navbar-brand">| &nbsp;<%= ContarCarrito()%> elementos &nbsp;| &nbsp;$<%= SubtotalCarrito()%> &nbsp;|</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,8 +12,6 @@
         <a class="btn btn-success" href="VerCarrito.aspx?comprar=todo" style="margin-left:5px;">Comprar todo</a>
         <a class="btn btn-danger" href="VerCarrito.aspx?eliminar=todo" style="margin-left:5px;">Borrar todo</a>
     </nav>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" style="padding: 10px;">
         <div class="container">
             <div class="row justify-content-center" style="width: auto; height: auto;">

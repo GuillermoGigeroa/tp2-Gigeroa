@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="CatalogoWebCarrito.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-left:none;border-right:none;border-bottom:dashed;border-top:dashed;border-width:1px;border-color:white;">
-        <a class="navbar-brand" href="VerCarrito.aspx">Ver mi carrito</a>
-        <a class="navbar-brand">| &nbsp;<%= ContarCarrito()%> elementos &nbsp;| &nbsp;$<%= SubtotalCarrito()%> &nbsp;|</a>
+        <a class="btn btn-outline-light" style="margin-right:15px;" href="Index.aspx"><strong>Inicio</strong></a>
+        <a class="btn btn-outline-light" style="margin-right:15px;" href="VerCarrito.aspx"><strong>Ver mi carrito</strong></a>
+        <a class="navbar-brand"><%= ContarCarrito()%> elementos &nbsp;| &nbsp;$<%= SubtotalCarrito()%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown active">
@@ -29,15 +31,13 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" id="busqueda" type="search" placeholder="Buscar artículo" aria-label="Buscar artículo">
-                <a href="Index.aspx?buscar=loquebusco" class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</a>
-                <%--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
-            </form>
+            <%--<div class="form-inline my-2 my-lg-0">
+                <asp:TextBox CssClass="form-control mr-sm-2" ID="txtBuscar" runat="server" OnTextChanged="txtBuscar_TextChanged"></asp:TextBox>
+                <asp:Button CssClass="btn btn-outline-success my-2 my-sm-0" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click"/>
+            </div>--%>
         </div>
     </nav>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container" style="padding: 10px;">
         <div class="card-columns" style="margin-left: 10px; margin-right: 10px;">
             <asp:Repeater runat="server" ID="repetidor">
@@ -52,7 +52,7 @@
                         <div class="container" style="text-align: center; padding: 5px;">
                             <div class="row" style="display: inline-block">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Agregar al carrito
                                     </button>
                                     <div class="dropdown-menu">

@@ -18,9 +18,9 @@ namespace CatalogoWebCarrito
         protected void Page_Load(object sender, EventArgs e)
         {
             NegocioCatalogo negocio = new NegocioCatalogo();
-            if((Carrito)Session["Carrito" + Session.SessionID] != null)
+            if ((Carrito)Session["Carrito" + Session.SessionID] != null)
             {
-                carrito.IdCarrito = "c-"+Session.SessionID;
+                carrito.IdCarrito = "c-" + Session.SessionID;
                 carrito = (Carrito)Session["Carrito" + Session.SessionID];
             }
             lista = negocio.ListarArticulos();
@@ -32,7 +32,7 @@ namespace CatalogoWebCarrito
             string cantidad = Request.QueryString["cant"];
             string filtroMarca = Request.QueryString["filtroMarca"];
             string filtroCategoria = Request.QueryString["filtroCategoria"];
-            if(idArticulo != null && cantidad != null)
+            if (idArticulo != null && cantidad != null)
                 AgregarAlCarrito(idArticulo, cantidad);
             if (filtroMarca != null)
                 FiltrarPorMarca(filtroMarca);
@@ -42,7 +42,7 @@ namespace CatalogoWebCarrito
         }
         protected int ContarCarrito()
         {
-            if(carrito == null)
+            if (carrito == null)
                 return 0;
             return carrito.getCantidad();
         }
@@ -54,25 +54,80 @@ namespace CatalogoWebCarrito
         }
         protected void AgregarAlCarrito(string IdArticulo, string cant)
         {
-            Articulo articuloParaAgregar = new Articulo();
-            articuloParaAgregar = lista.Find(articulo => articulo.ID_Articulo == Convert.ToInt32(IdArticulo));
-            carrito.AgregarArticulos(articuloParaAgregar, Convert.ToInt32(cant));
+            try
+            {
+                Articulo articuloParaAgregar = new Articulo();
+                articuloParaAgregar = lista.Find(articulo => articulo.ID_Articulo == Convert.ToInt32(IdArticulo));
+                carrito.AgregarArticulos(articuloParaAgregar, Convert.ToInt32(cant));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         protected void FiltrarPorMarca(string idMarca)
         {
-            List<Articulo> listaFiltrada = new List<Articulo>();
-            listaFiltrada = lista.FindAll(articulo => articulo.Marca.ID_Marca == Convert.ToInt32(idMarca));
-            lista = listaFiltrada;
-            repetidor.DataSource = lista;
-            repetidor.DataBind();
+            try
+            {
+                List<Articulo> listaFiltrada = new List<Articulo>();
+                listaFiltrada = lista.FindAll(articulo => articulo.Marca.ID_Marca == Convert.ToInt32(idMarca));
+                lista = listaFiltrada;
+                repetidor.DataSource = lista;
+                repetidor.DataBind();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         protected void FiltrarPorCategoria(string idCategoria)
         {
-            List<Articulo> listaFiltrada = new List<Articulo>();
-            listaFiltrada = lista.FindAll(articulo => articulo.Categoria.ID_Categoria == Convert.ToInt32(idCategoria));
-            lista = listaFiltrada;
-            repetidor.DataSource = lista;
-            repetidor.DataBind();
+            try
+            {
+                List<Articulo> listaFiltrada = new List<Articulo>();
+                listaFiltrada = lista.FindAll(articulo => articulo.Categoria.ID_Categoria == Convert.ToInt32(idCategoria));
+                lista = listaFiltrada;
+                repetidor.DataSource = lista;
+                repetidor.DataBind();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+        //private void txtBuscar_TextChanged1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<Articulo> listaFiltrada;
+        //        if (txtBuscar.Text == "")
+        //            listaFiltrada = lista;
+        //        else
+        //            listaFiltrada = lista.FindAll(articulo => articulo.CodigoArticulo.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
+        //        repetidor.DataSource = listaFiltrada;
+        //        repetidor.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+        //protected void btnBuscar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<Articulo> listaFiltrada;
+        //        if (txtBuscar.Text == "")
+        //            listaFiltrada = lista;
+        //        else
+        //            listaFiltrada = lista.FindAll(articulo => articulo.CodigoArticulo.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
+        //        repetidor.DataSource = listaFiltrada;
+        //        repetidor.DataBind();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
     }
 }
