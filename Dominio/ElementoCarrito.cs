@@ -8,16 +8,17 @@ namespace Dominio
 {
     public class ElementoCarrito
     {
-        public Articulo articulo { get; set; }
-        public int cantidad { get; set; }
+        public int ID_elemento { get; set; }
+        public Articulo Articulo { get; set; }
+        public int Cantidad { get; set; }
         public ElementoCarrito()
         {
-            Articulo articulo1 = new Articulo();
-            articulo = articulo1;
+            Articulo = new Articulo();
         }
         public double precio()
         {
-            return (double)articulo.Precio * (double)cantidad;
+            return (double)Articulo.Precio * Cantidad;
         }
+        
     }
 }

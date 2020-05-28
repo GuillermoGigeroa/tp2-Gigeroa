@@ -9,6 +9,7 @@ namespace Dominio
     public class Carrito
     {
         public string IdCarrito { get; set; }
+        public int CantElementos { get; set; }
         public List<ElementoCarrito> ListaDeElementos { get; set; }
         public Carrito()
         {
@@ -27,11 +28,30 @@ namespace Dominio
         public void AgregarArticulos(Articulo articulo, int cantidad)
         {
             ElementoCarrito elemento = new ElementoCarrito();
-            elemento.articulo = articulo;
-            elemento.cantidad = cantidad;
-            for(int x = 1; x <= cantidad; x += 1)
+            CantElementos += 1;
+            elemento.Articulo = articulo;
+            elemento.Cantidad = cantidad;
+            elemento.ID_elemento = CantElementos;
+            ListaDeElementos.Add(elemento);
+        }
+        public int getCantidad()
+        {
+            int Cantidad = 0;
+            foreach (var elemento in ListaDeElementos)
             {
-                ListaDeElementos.Add(elemento);
+                Cantidad += elemento.Cantidad;
+            }
+            return Cantidad;
+        }
+        public void EliminarElemento(int ID_elemento)
+        {
+            foreach (var elemento in ListaDeElementos)
+            {
+                if(elemento.ID_elemento == ID_elemento)
+                {
+                    ListaDeElementos.Remove(elemento);
+                    return;
+                }
             }
         }
     }

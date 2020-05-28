@@ -17,6 +17,7 @@ namespace CatalogoWebCarrito
         {
             if((Carrito)Session["Carrito" + Session.SessionID] != null)
             {
+                carrito.IdCarrito = "c-"+Session.SessionID;
                 carrito = (Carrito)Session["Carrito" + Session.SessionID];
             }
             NegocioCatalogo negocio = new NegocioCatalogo();
@@ -27,14 +28,13 @@ namespace CatalogoWebCarrito
             string cantidad = Request.QueryString["cant"];
             if(idArticulo != null && cantidad != null)
                 AgregarAlCarrito(idArticulo, cantidad);
-                
             Session["Carrito" + Session.SessionID] = carrito;
         }
         protected int ContarCarrito()
         {
             if(carrito == null)
                 return 0;
-            return carrito.ListaDeElementos.Count();
+            return carrito.getCantidad();
         }
         protected double SubtotalCarrito()
         {

@@ -24,7 +24,7 @@ namespace CatalogoWebCarrito
         {
             if (carrito == null)
                 return 0;
-            return carrito.ListaDeElementos.Count();
+            return carrito.getCantidad();
         }
         protected double SubtotalCarrito()
         {

@@ -29,7 +29,8 @@
                             <div class="card-body">
                                 <h5 class="card-title" style="text-align: center"><%#Eval("articulo.Nombre")%></h5>
                                 <p class="card-text" style="text-align: center"><%#Eval("articulo.Descripcion")%></p>
-                                <p class="card-text" style="text-align: center">$<%#Convert.ToDouble(Eval("articulo.Precio"))%></p>
+                                <p class="card-text" style="text-align: center"><%#Eval("Cantidad")%> x $<%#Convert.ToDouble(Eval("articulo.Precio"))%></p>
+                                <p class="card-text" style="text-align: center">Total: $<%#Convert.ToDouble(Eval("articulo.Precio"))*Convert.ToInt32(Eval("Cantidad"))%></p>
                             </div>
                         </div>
                     </ItemTemplate>
