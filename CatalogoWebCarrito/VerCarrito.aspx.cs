@@ -19,6 +19,20 @@ namespace CatalogoWebCarrito
                 listaCarrito.DataSource = carrito.ListaDeElementos;
                 listaCarrito.DataBind();
             }
+            string ID_elemento = Request.QueryString["eliminar"];
+            if (ID_elemento != null)
+            {
+                if (ID_elemento == "todo")
+                {
+                    List<ElementoCarrito> listaVacia = new List<ElementoCarrito>();
+                    carrito.ListaDeElementos = listaVacia;
+                }
+                else
+                {
+                    carrito.EliminarElemento(Convert.ToInt32(ID_elemento));
+                }
+                Response.Redirect("VerCarrito.aspx");
+            }
         }
         protected int ContarCarrito()
         {
