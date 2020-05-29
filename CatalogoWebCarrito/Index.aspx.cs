@@ -95,39 +95,22 @@ namespace CatalogoWebCarrito
                 throw;
             }
         }
-        //private void txtBuscar_TextChanged1(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<Articulo> listaFiltrada;
-        //        if (txtBuscar.Text == "")
-        //            listaFiltrada = lista;
-        //        else
-        //            listaFiltrada = lista.FindAll(articulo => articulo.CodigoArticulo.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
-        //        repetidor.DataSource = listaFiltrada;
-        //        repetidor.DataBind();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-        //protected void btnBuscar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<Articulo> listaFiltrada;
-        //        if (txtBuscar.Text == "")
-        //            listaFiltrada = lista;
-        //        else
-        //            listaFiltrada = lista.FindAll(articulo => articulo.CodigoArticulo.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
-        //        repetidor.DataSource = listaFiltrada;
-        //        repetidor.DataBind();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Articulo> listaFiltrada;
+                if (txtBuscar.Text == "")
+                    listaFiltrada = lista;
+                else
+                    listaFiltrada = lista.FindAll(articulo => articulo.Nombre.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
+                repetidor.DataSource = listaFiltrada;
+                repetidor.DataBind();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
