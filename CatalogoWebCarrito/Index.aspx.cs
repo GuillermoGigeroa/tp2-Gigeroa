@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Security.Cryptography;
+using System.Web.Services.Description;
 
 namespace CatalogoWebCarrito
 {
@@ -129,6 +131,18 @@ namespace CatalogoWebCarrito
             if (SeBusco)
                 return cantActual.ToString() +" artículos encontrados:";
             return "";
+        }
+        protected double OfertaDudosa() //Parodia de ofertas dudosas que intentan confundir a los clientes con descuentos ficticios.
+        {
+            double porcentaje = NumeroRandom(5,35);
+            porcentaje = porcentaje / 100;
+            porcentaje += 1;
+            return porcentaje;
+        }
+        protected int NumeroRandom(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
         }
     }
 }
