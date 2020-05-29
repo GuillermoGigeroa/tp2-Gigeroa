@@ -6,6 +6,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-left: none; border-right: none; border-bottom: dashed; border-top: dashed; border-width: 1px; border-color: white;">
         <a class="btn btn-outline-light" style="margin-right: 15px;" href="Index.aspx"><strong>Inicio</strong></a>
         <a class="btn btn-outline-light" style="margin-right: 15px;" href="VerCarrito.aspx"><strong>Ver mi carrito</strong></a>
+        <img src="https://image.flaticon.com/icons/svg/777/777205.svg" style="max-width: 25px; max-height: 25px;margin-right:10px;"/>
         <a class="navbar-brand"><%= ContarCarrito()%> elementos &nbsp;| &nbsp;$<%= SubtotalCarrito()%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,13 +33,48 @@
                 </li>
             </ul>
             <div class="form-inline my-2 my-lg-0">
+                <button type="button" class="btn btn-light" style="margin-right: 10px;" data-toggle="modal" data-target="#exampleModal">
+                    <img src="https://media3.giphy.com/media/26n7b7PjSOZJwVCmY/giphy.gif?cid=ecf05e47ba5abdfb329af3570845ef6ca6989a084b1f05ec&rid=giphy.gif" style="max-width: 25px; max-height: 25px;" alt="GigeroaBlack" />
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Sistema de carrito web</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" ">
+                                <div class="container align-content-center">
+                                    <div class="row">
+                                        <p style="text-align: center;">Gracias por utilizar mi primer sistema de carrito web.</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col" style="width:auto;height:auto;">
+                                            <img src="https://media3.giphy.com/media/lOgu1OnjYF2GHBfRU4/giphy.gif?cid=ecf05e47c78a3a1f8ee5d58ed993da31015f474fb806b8dd&rid=giphy.gif" style="max-width: 200px; max-height: 200px;"/>
+                                        </div>
+                                        <div class="col" style="width:auto;height:auto;margin-left:40px;">
+                                            <img src="https://guillermogigeroa.github.io/portfolio-personal/images/miFoto.jpg" style="width:150px;border-radius: 200px 200px 200px 200px;-moz-border-radius: 200px 200px 200px 200px;-webkit-border-radius: 200px 200px 200px 200px;"/>
+                                            <p style="height:1px;"></p>
+                                            <a class="btn btn-dark" style="vertical-align:central;margin-left:20px;" href="https://guillermogigeroa.github.io/portfolio-personal/" target="_blank">¿Quién soy?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <asp:TextBox CssClass="form-control mr-sm-2" ID="txtBuscar" runat="server"></asp:TextBox>
-                <asp:Button CssClass="btn btn-outline-light my-2 my-sm-0" Font-Bold="true" ID="btnBuscar" runat="server" Text="Buscar" OnClick="btnBuscar_Click" />
+                <asp:Button CssClass="btn btn-outline-light my-2 my-sm-0" Font-Bold="true" ID="btnBuscar" runat="server" Text="Buscar" OnClick=" btnBuscar_Click"/>
             </div>
         </div>
     </nav>
-
     <div class="container" style="padding: 10px;">
+        <p style="color:white;"><strong><%=MensajeBusqueda()%></strong></p>
         <div class="card-columns" style="margin-left: 10px; margin-right: 10px;">
             <asp:Repeater runat="server" ID="repetidor">
                 <ItemTemplate>
@@ -68,6 +104,5 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-
     </div>
 </asp:Content>

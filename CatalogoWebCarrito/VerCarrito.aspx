@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-left:none;border-right:none;border-bottom:dashed;border-top:dashed;border-width:1px;border-color:white;">
         <a class="btn btn-outline-light" style="margin-right:15px;" href="Index.aspx"><strong>Ver catálogo</strong></a>
+        <img src="https://image.flaticon.com/icons/svg/777/777205.svg" style="max-width: 25px; max-height: 25px;margin-right:10px;"/>
         <a class="navbar-brand"><%= ContarCarrito()%> elementos &nbsp;| &nbsp;$<%= SubtotalCarrito()%></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,6 +20,7 @@
             </div>
         </div>
         <div class="jumbotron">
+            <h4 style="text-align:center;"><%=MensajeCarritoVacio()%></h4>
             <div class="card-columns" style="margin-left: 10px; margin-right: 10px;">
                 <asp:Repeater runat="server" ID="listaCarrito">
                     <ItemTemplate>

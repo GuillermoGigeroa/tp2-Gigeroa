@@ -46,5 +46,12 @@ namespace CatalogoWebCarrito
                 return 0;
             return carrito.Subtotal();
         }
+        protected string MensajeCarritoVacio()
+        {
+            if (ContarCarrito() == 0)
+                return "Ups! Parece que no tienes ningún elemento en el carrito. Ve al catálogo para agregar más.";
+            else
+                return "";
+        }
     }
 }

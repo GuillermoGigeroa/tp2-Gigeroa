@@ -15,8 +15,14 @@ namespace CatalogoWebCarrito
         public List<Articulo> lista = new List<Articulo>();
         public List<Marca> listaMarcas = new List<Marca>();
         public List<Categoria> listaCategorias = new List<Categoria>();
+        private bool SeBusco;
+        private int cantActual;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                SeBusco = false;
+            }
             NegocioCatalogo negocio = new NegocioCatalogo();
             if ((Carrito)Session["Carrito" + Session.SessionID] != null)
             {
@@ -69,9 +75,11 @@ namespace CatalogoWebCarrito
         {
             try
             {
+                SeBusco = true;
                 List<Articulo> listaFiltrada = new List<Articulo>();
                 listaFiltrada = lista.FindAll(articulo => articulo.Marca.ID_Marca == Convert.ToInt32(idMarca));
                 lista = listaFiltrada;
+                cantActual = listaFiltrada.Count();
                 repetidor.DataSource = lista;
                 repetidor.DataBind();
             }
@@ -84,9 +92,11 @@ namespace CatalogoWebCarrito
         {
             try
             {
+                SeBusco = true;
                 List<Articulo> listaFiltrada = new List<Articulo>();
                 listaFiltrada = lista.FindAll(articulo => articulo.Categoria.ID_Categoria == Convert.ToInt32(idCategoria));
                 lista = listaFiltrada;
+                cantActual = listaFiltrada.Count();
                 repetidor.DataSource = lista;
                 repetidor.DataBind();
             }
@@ -99,11 +109,13 @@ namespace CatalogoWebCarrito
         {
             try
             {
+                SeBusco = true;
                 List<Articulo> listaFiltrada;
                 if (txtBuscar.Text == "")
                     listaFiltrada = lista;
                 else
                     listaFiltrada = lista.FindAll(articulo => articulo.Nombre.ToLower().Contains(txtBuscar.Text.Trim().ToLower()));
+                cantActual = listaFiltrada.Count();
                 repetidor.DataSource = listaFiltrada;
                 repetidor.DataBind();
             }
@@ -111,6 +123,12 @@ namespace CatalogoWebCarrito
             {
                 throw;
             }
+        }
+        protected string MensajeBusqueda()
+        {
+            if (SeBusco)
+                return cantActual.ToString() +" artículos encontrados:";
+            return "";
         }
     }
 }
